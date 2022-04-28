@@ -2,7 +2,8 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "got": "^11.0.2",
-    "jsdom": "^16.4.0"
+    "website-scraper": "^4.2.3",
+    "website-scraper-puppeteer": "^0.1.5"
   },
   "name": "projeto",
   "version": "1.0.0",
