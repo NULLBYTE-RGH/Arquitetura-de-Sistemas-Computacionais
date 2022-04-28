@@ -1,25 +1,32 @@
 const got = require('got');
 const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+const fs = require('fs');
+const { url } = require('inspector');
 require('dotenv').config()
+
+const { JSDOM } = jsdom;
 
 let sites = process.env.URLS.split(",");
 const tamanho = sites.length
 
 for (let i = 0;i<tamanho;i++){
-    const vgmUrl= sites[i]
-const isMidi = (link) => {
+    const Url= sites[i]
+
+const Filtro1 = (link) => {
   return link;
 };
 
 (async () => {
-  const response = await got(vgmUrl);
-  const dom = new JSDOM(response.body);
+  const response = await got(Url);
+  var Nome = Url.toString().split("/")[2]
 
-const resultados = [...dom.window.document.querySelectorAll('html')]
-resultados.filter(isMidi).forEach(link => {
-console.log(sites[i])
-console.log(link.textContent);
-  });
+  Nome = `(${Nome}).html`
+  console.log(Nome)
+
+fs.writeFile(Nome, response.body, (err) => {
+    if (err) throw err;
+  console.log(`Site ${Url} Clonado com sucesso!`);
+
+});
 })()
 }
