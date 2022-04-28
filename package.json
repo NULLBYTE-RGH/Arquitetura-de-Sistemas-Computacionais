@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "got": "^11.0.2",
+    "jsdom": "^16.4.0"
+  },
+  "name": "projeto",
+  "version": "1.0.0",
+  "main": "microServiço1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
