@@ -1,0 +1,1 @@
+URLS='https://edition.cnn.com/,https://www.bbc.com/news,https://www.rt.com/'
