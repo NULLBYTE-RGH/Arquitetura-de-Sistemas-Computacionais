@@ -21,7 +21,7 @@ var dia = new Date()
 
 var ListaSitesAtualizar = []
 
-const Porta_Ouvir = 4004
+const Porta_Ouvir = 4003
 
 //----------------------Conec Microservico----------------
 function Microservico(){
@@ -31,8 +31,16 @@ function Microservico(){
     })
     
     app.get('/requisitar_clonagem', (req, res) => {
-        console.log(req.body.sites)
+        let sites_novos
+        sites_novos = JSON.stringify(req.body.sites)
+        sites_novos = sites_novos.replaceAll('"',"").split(",")
+
+        for (let i=0; i< sites_novos.length; i++) {
+            ListaSitesAtualizar.push(sites_novos[i])
+        }
+        console.log(ListaSitesAtualizar)
         res.sendStatus(201)
+        Scrapping(ListaSitesAtualizar)
     })
 
     app.listen(Porta_Ouvir, () => {
@@ -113,6 +121,7 @@ catch(e){}
 
 }
 //=====================================================
+ListaSitesAtualizar = []
 Microservico()
 //=====================================================
 }
