@@ -1,5 +1,6 @@
 const got = require('got')
 const fs = require('fs')
+const jsdom = require("jsdom");
 const { url } = require('inspector')
 const scrape = require('website-scraper')
 const PuppeteerPlugin = require('website-scraper-puppeteer')
@@ -11,7 +12,7 @@ const axios = require('axios')
 require('dotenv').config()
 const app = express()
 app.use(express.json())
-
+const { JSDOM } = jsdom;
 
 let sites = process.env.URLS.split(",")
 const tamanho = sites.length
@@ -94,7 +95,9 @@ async function ChecarAtualizacao(Pasta){
 }
 //=============================================
 
-async function Scrapping(URLS){
+async function Scrapping(URLS,tipo){
+
+    if (tipo ==1){
 
 for (let i = 0;i < URLS.length;i++) {
 
@@ -136,16 +139,62 @@ fs.writeFile(`${Nome}/DATAclonagem.json`, data, (err) => {
 catch(e){}
 
 }
+    }
+//==============================EXPERIMENTAL================
+    else{
+
+async function rapido(){
+
+let sites = process.env.URLS.split(",");
+
+const tamanho = sites.length
+
+for (let i = 0;i<tamanho;i++){
+const Url= sites[i]
+var Nome = Url.toString().split("/")[2]
+let Nome_Dir = Nome
+
+fs.mkdir(path.join(__dirname, Nome_Dir), (err) => {
+  if (err) {
+      return console.error(err);
+  }
+  console.log('Directory created successfully!');
+
+  (async () => {
+    const response = await got(Url);
+    
+    console.log(Nome)
+    
+    fs.writeFile(Nome_Dir.concat(`/${Nome_Dir}.html`), response.body, (err) => {
+      if (err) throw err;
+      let data = {hora,dia}
+      data = JSON.stringify(data)
+    
+      fs.writeFile(`${Nome_Dir}/DATAclonagem.json`, data, (err) => {
+      if (err) throw err
+      console.log(`Clonagem Completa! ---> ${Nome}`)
+    
+    })
+    console.log(`Site ${Url} Clonado com sucesso!`);
+    
+    });
+    })()
+
+});
+}
+
+}
+rapido()
+
+    }
+//==============================EXPERIMENTAL================
+
 //=====================================================
 ListaSitesAtualizar = []
 Microservico()
 //=====================================================
 }
 
-function ChecarExistencia(){
-
-
-}
 async function Iniciar(){
 hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds()
 dia = dia.getFullYear()+'-'+(dia.getMonth()+1)+'-'+dia.getDate()
@@ -175,7 +224,8 @@ for (let i = 0;i < tamanho;i++) {
 }
 }
 try{
-await Scrapping(ListaSitesAtualizar)
+//clonagem simples = 0, completa = 1
+await Scrapping(ListaSitesAtualizar,0)
 }
 catch(e){}
 }
