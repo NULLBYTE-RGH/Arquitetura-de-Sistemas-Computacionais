@@ -9,4 +9,5 @@ MicroServiço1 = Clonagem de fachadas de sites e comunicação com barramento{
 +O serviço de comunicação HTTP com o barramento, faz uso de requisiçoes GET,como exemplificado no arquivo(Microservico1.postman_collection.JSON), podendo:
 
 -Listar todos os sites ja clonados e atualizados, com resposta no formato JSON
+
 -Receber requisição de clonagem de um ou mais sites, tambem no formato JSON
