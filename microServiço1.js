@@ -153,12 +153,11 @@ for (let i = 0;i<tamanho;i++){
 const Url= sites[i]
 var Nome = Url.toString().split("/")[2]
 let Nome_Dir = Nome
-
+try{
 fs.mkdir(path.join(__dirname, Nome_Dir), (err) => {
   if (err) {
       return console.error(err);
   }
-  console.log('Directory created successfully!');
 
   (async () => {
     const response = await got(Url);
@@ -180,7 +179,12 @@ fs.mkdir(path.join(__dirname, Nome_Dir), (err) => {
     });
     })()
 
-});
+}
+);
+}
+catch(e){
+    console.log(e)
+}
 }
 
 }
