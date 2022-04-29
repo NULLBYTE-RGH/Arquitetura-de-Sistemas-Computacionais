@@ -5,8 +5,13 @@ const scrape = require('website-scraper')
 const PuppeteerPlugin = require('website-scraper-puppeteer')
 const path = require('path')
 const { PassThrough } = require('stream')
+const express = require('express')
+const axios = require('axios')
 
 require('dotenv').config()
+const app = express()
+app.use(express.json())
+
 
 let sites = process.env.URLS.split(",")
 const tamanho = sites.length
@@ -15,6 +20,21 @@ var hora = new Date()
 var dia = new Date()
 
 var ListaSitesAtualizar = []
+
+const Porta_Ouvir = 4004
+
+//----------------------Conec Microservico----------------
+function Microservico(){
+
+    app.get('/clonados', (req, res) => {
+        res.send({sites})
+    })
+    
+    app.listen(Porta_Ouvir, () => {
+        console.log(`Microservico 1  iniciado na porta ${Porta_Ouvir}`)
+    })
+}
+//----------------------/Conec Microservico----------------
 
 //=============================================
 async function ChecarAtualizacao(Pasta){
@@ -46,6 +66,7 @@ async function ChecarAtualizacao(Pasta){
 //=============================================
 
 async function Scrapping(URLS){
+
 for (let i = 0;i < URLS.length;i++) {
 
 const Url= URLS[i]
@@ -86,6 +107,9 @@ fs.writeFile(`${Nome}/DATAclonagem.json`, data, (err) => {
 catch(e){}
 
 }
+//=====================================================
+Microservico()
+//=====================================================
 }
 
 async function Iniciar(){
@@ -124,3 +148,4 @@ catch(e){}
 }
 
 Iniciar()
+
