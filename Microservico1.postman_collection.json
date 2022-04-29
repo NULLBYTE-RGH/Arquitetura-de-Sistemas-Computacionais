@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "abeae80d-3384-4517-a5e3-86871993116b",
+		"name": "Microservico1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "clonados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:4003/clonados",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4003",
+					"path": [
+						"clonados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:4004/requisitar_clonagem",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"sites\":\"https://www.rt.com/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:4003/requisitar_clonagem",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4003",
+					"path": [
+						"requisitar_clonagem"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
