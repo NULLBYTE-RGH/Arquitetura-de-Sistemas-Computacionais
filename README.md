@@ -1,5 +1,5 @@
 # Arquitetura-de-Sistemas-Computacionais
-## Tema (Luta contra a censura em paises afetados pela guerra)
+## Tema (Luta contra a censura em paises afetados pela guerra) ⚠️
 
 ### **MicroServiço1 = Clonagem de fachadas de sites e comunicação com barramento:**
 
