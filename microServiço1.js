@@ -41,10 +41,16 @@ function Microservico(){
         console.log(ListaSitesAtualizar)
         res.sendStatus(201)
         Scrapping(ListaSitesAtualizar)
-    })
-
-    app.listen(Porta_Ouvir, () => {
-        console.log(`Microservico 1  iniciado na porta ${Porta_Ouvir}`)
+        //===================================aqui=====================
+        dot = fs.readFileSync(".env",'utf8')
+        dot = dot.replaceAll("'",'').split("URLS=")   
+        dot = dot[1].toString().split(",")
+        for(let i=0;i<ListaSitesAtualizar.length;i++) {
+            dot.push(ListaSitesAtualizar[i])
+        }
+        dot = dot.toString()
+        fs.writeFileSync(".env",`URLS='${dot}'`)
+        //===================================aqui=====================
     })
 }
 //----------------------/Conec Microservico----------------
@@ -126,8 +132,11 @@ Microservico()
 //=====================================================
 }
 
-async function Iniciar(){
+function ChecarExistencia(){
 
+
+}
+async function Iniciar(){
 hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds()
 dia = dia.getFullYear()+'-'+(dia.getMonth()+1)+'-'+dia.getDate()
 
@@ -160,6 +169,10 @@ await Scrapping(ListaSitesAtualizar)
 }
 catch(e){}
 }
+
+app.listen(Porta_Ouvir, () => {
+    console.log(`Microservico 1  iniciado na porta ${Porta_Ouvir}`)
+})
 
 Iniciar()
 
