@@ -1,7 +1,7 @@
 # Arquitetura-de-Sistemas-Computacionais
 ## Tema (Luta contra a censura em paises afetados pela guerra)
 
-### ** MicroServiço1 = Clonagem de fachadas de sites e comunicação com barramento: **
+### **MicroServiço1 = Clonagem de fachadas de sites e comunicação com barramento:**
 
 - Clonagem rapida, salvando apenas o Conteudo da pagina sem fazer dowload das imagens,fontes e scripts [0]
 
