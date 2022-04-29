@@ -15,26 +15,33 @@ var hora = new Date()
 var dia = new Date()
 
 var ListaSitesAtualizar = []
-var TamanhoAtualizar = 0
+
 //=============================================
-function ChecarAtualizacao(Pasta){
+async function ChecarAtualizacao(Pasta){
+    let PastaRemover = Pasta
     Pasta  = `./${Pasta}/DATAclonagem.json`
     var dataAtual = new Date()
     var dataDoArquivo = new Date()
     var dataAtual = dataAtual.getFullYear()+'-'+(dataAtual.getMonth()+1)+'-'+dataAtual.getDate()
 
-    fs.readFile(Pasta, (err, data) => {
-        if (err) throw err
-        data = JSON.parse(data)
-        dataDoArquivo = data.dia
-        if (dataAtual>dataDoArquivo){
-            console.log(`Precisa Atualizar ${Pasta}`)
-            return 1
-        }
-        else{
-            return 0
-        }
-      })
+    // var hora = new Date();
+    // var hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds();
+
+    data = fs.readFileSync(Pasta)
+    data = JSON.parse(data)
+    dataDoArquivo = data.dia
+    if (dataAtual>dataDoArquivo){
+        console.log(`Precisa Atualizar ${Pasta}`)
+        try {
+            fs.unlinkSync(PastaRemover)
+          } catch(err) {
+            console.error(err)
+          }
+        return  1
+    }
+    else{
+        return  0
+    }
 }
 //=============================================
 
@@ -46,7 +53,7 @@ let Nome = Url.toString().split("/")[2]
 console.log(`Clonando ${Url}.....`)
 
 try{
-scrape({
+await scrape({
   
   urls: [Url],
   directory: path.resolve(__dirname, Nome),
@@ -63,12 +70,13 @@ scrape({
           }
       })
   ]
-},
+})
 
-()=>{
+}
 
-var hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds()
-var dia = dia.getFullYear()+'-'+(dia.getMonth()+1)+'-'+dia.getDate()
+catch(e){}
+hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds()
+dia = dia.getFullYear()+'-'+(dia.getMonth()+1)+'-'+dia.getDate()
 let data = {hora,dia}
 data = JSON.stringify(data)
 
@@ -76,31 +84,35 @@ fs.writeFile(`${Nome}/DATAclonagem.json`, data, (err) => {
     if (err) throw err
   console.log(`Clonagem Completa! ---> ${Nome}`)
 
-})})
-
-}
-catch(e){}
+})
 }
 }
 
-function Iniciar(){
+async function Iniciar(){
 for (let i = 0;i < tamanho;i++) {
     const Url= sites[i]
     let Nome = Url.toString().split("/")[2]
     const dir = `./${Nome}`
 
     if (fs.existsSync(dir)) {
-        console.log('Directory exists!')
-        if(ChecarAtualizacao(Nome)){
-            ListaSitesAtualizar.push(Nome)
+        console.log('Site ja Clonado!')
+        console.log('Verificando se precisa Atualizar....')
+        if(ChecarAtualizacao(Nome) == true){
+            ListaSitesAtualizar.push(Url)
+            console.log(ListaSitesAtualizar)
         }
-        
+        else{
+            console.log("Site Em dia! Nao eh necessario atualizar :)")
+        }  
     }   
     else {
-            ListaSitesAtualizar.push(Nome)
+        ListaSitesAtualizar.push(Url)
 }
-    Scrapping(ListaSitesAtualizar)
 }
+try{
+await Scrapping(ListaSitesAtualizar)
+}
+catch(e){}
 }
 
 Iniciar()
