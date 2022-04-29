@@ -23,9 +23,17 @@ var ListaSitesAtualizar = []
 
 const Porta_Ouvir = 4003
 
+var PortaAberta = 0
 //----------------------Conec Microservico----------------
 function Microservico(){
+    if(PortaAberta == 0 ){
 
+    app.listen(Porta_Ouvir, () => {
+        console.log(`Microservico 1  iniciado na porta ${Porta_Ouvir}`)
+        PortaAberta = 1
+    })
+    
+}
     app.get('/clonados', (req, res) => {
         res.send({sites})
     })
@@ -171,10 +179,5 @@ await Scrapping(ListaSitesAtualizar)
 }
 catch(e){}
 }
-
-app.listen(Porta_Ouvir, () => {
-    console.log(`Microservico 1  iniciado na porta ${Porta_Ouvir}`)
-})
-
 Iniciar()
 
