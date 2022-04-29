@@ -46,9 +46,11 @@ function Microservico(){
         dot = dot.replaceAll("'",'').split("URLS=")   
         dot = dot[1].toString().split(",")
         for(let i=0;i<ListaSitesAtualizar.length;i++) {
+            
             dot.push(ListaSitesAtualizar[i])
         }
-        dot = dot.toString()
+        let DotSemDuplicado = dot.filter((este, i) => dot.indexOf(este) === i);
+        dot = DotSemDuplicado.toString()
         fs.writeFileSync(".env",`URLS='${dot}'`)
         //===================================aqui=====================
     })
