@@ -32,11 +32,11 @@ async function ChecarAtualizacao(Pasta){
     dataDoArquivo = data.dia
     if (dataAtual>dataDoArquivo){
         console.log(`Precisa Atualizar ${Pasta}`)
-        try {
-            fs.unlinkSync(PastaRemover)
-          } catch(err) {
-            console.error(err)
-          }
+        // try {
+        //     fs.unlinkSync(PastaRemover)
+        //   } catch(err) {
+        //     console.error(err)
+        //   }
         return  1
     }
     else{
@@ -72,11 +72,6 @@ await scrape({
   ]
 })
 
-}
-
-catch(e){}
-hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds()
-dia = dia.getFullYear()+'-'+(dia.getMonth()+1)+'-'+dia.getDate()
 let data = {hora,dia}
 data = JSON.stringify(data)
 
@@ -85,24 +80,37 @@ fs.writeFile(`${Nome}/DATAclonagem.json`, data, (err) => {
   console.log(`Clonagem Completa! ---> ${Nome}`)
 
 })
+
+}
+
+catch(e){}
+
 }
 }
 
 async function Iniciar(){
+
+hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds()
+dia = dia.getFullYear()+'-'+(dia.getMonth()+1)+'-'+dia.getDate()
+
 for (let i = 0;i < tamanho;i++) {
     const Url= sites[i]
     let Nome = Url.toString().split("/")[2]
     const dir = `./${Nome}`
 
     if (fs.existsSync(dir)) {
-        console.log('Site ja Clonado!')
+        console.log("----------------------------------------------------------------")
+        console.log(`${Nome} ja Clonado!`)
         console.log('Verificando se precisa Atualizar....')
         if(ChecarAtualizacao(Nome) == true){
             ListaSitesAtualizar.push(Url)
             console.log(ListaSitesAtualizar)
+            console.log("eh necessario atualizar!")
+            console.log("----------------------------------------------------------------")
         }
         else{
             console.log("Site Em dia! Nao eh necessario atualizar :)")
+            console.log("----------------------------------------------------------------")
         }  
     }   
     else {
