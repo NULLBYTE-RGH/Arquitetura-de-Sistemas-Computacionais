@@ -30,6 +30,11 @@ function Microservico(){
         res.send({sites})
     })
     
+    app.get('/requisitar_clonagem', (req, res) => {
+        console.log(req.body.sites)
+        res.sendStatus(201)
+    })
+
     app.listen(Porta_Ouvir, () => {
         console.log(`Microservico 1  iniciado na porta ${Porta_Ouvir}`)
     })
