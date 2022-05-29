@@ -7,6 +7,8 @@ import { ComponenteUmCliComponent } from './componente-um-cli/componente-um-cli.
 import { ComponenteCriarContaCliComponent } from './componente-criar-conta-cli/componente-criar-conta-cli.component';
 import { ComponenteLoginCliComponent } from './componente-login-cli/componente-login-cli.component';
 import { ComponenteMainCliComponent } from './componente-main-cli/componente-main-cli.component';
+import { ComponenteRTCliComponent } from './componente-rt-cli/componente-rt-cli.component';
+import { ComponentCnnCliComponent } from './component-cnn-cli/component-cnn-cli.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ComponenteMainCliComponent } from './componente-main-cli/componente-mai
     ComponenteCriarContaCliComponent,
     ComponenteLoginCliComponent,
     ComponenteMainCliComponent,
+    ComponenteRTCliComponent,
+    ComponentCnnCliComponent,
   ],
   imports: [
     BrowserModule,
