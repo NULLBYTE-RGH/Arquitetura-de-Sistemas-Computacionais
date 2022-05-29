@@ -154,7 +154,7 @@ const Url= sites[i]
 var Nome = Url.toString().split("/")[2]
 let Nome_Dir = Nome
 try{
-fs.mkdir(path.join(__dirname, Nome_Dir), (err) => {
+fs.mkdir(path.join(__dirname, `${Nome_Dir}`), (err) => {
   if (err) {
       return console.error(err);
   }
@@ -164,12 +164,12 @@ fs.mkdir(path.join(__dirname, Nome_Dir), (err) => {
     
     console.log(Nome)
     
-    fs.writeFile(Nome_Dir.concat(`/${Nome_Dir}.html`), response.body, (err) => {
+    fs.writeFile(path.join(__dirname, `${Nome_Dir}`).concat(`/${Nome_Dir}.html`), response.body, (err) => {
       if (err) throw err;
       let data = {hora,dia}
       data = JSON.stringify(data)
     
-      fs.writeFile(`${Nome_Dir}/DATAclonagem.json`, data, (err) => {
+      fs.writeFile(path.join(__dirname, `${Nome_Dir}`).concat(`/DATAclonagem.json`), data, (err) => {
       if (err) throw err
       console.log(`Clonagem Completa! ---> ${Nome}`)
     
@@ -234,4 +234,3 @@ await Scrapping(ListaSitesAtualizar,0)
 catch(e){}
 }
 Iniciar()
-
