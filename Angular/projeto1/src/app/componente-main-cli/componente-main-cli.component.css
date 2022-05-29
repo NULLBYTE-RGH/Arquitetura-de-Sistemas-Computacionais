@@ -1,0 +1,8 @@
+.textoGrande{
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+.textoGrande:hover{
+ white-space: normal;
+}

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ComponenteUmCliComponent } from './componente-um-cli/componente-um-cli.component';
 import { ComponenteCriarContaCliComponent } from './componente-criar-conta-cli/componente-criar-conta-cli.component';
 import { ComponenteLoginCliComponent } from './componente-login-cli/componente-login-cli.component';
+import { ComponenteMainCliComponent } from './componente-main-cli/componente-main-cli.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ComponenteLoginCliComponent } from './componente-login-cli/componente-l
     ComponenteUmCliComponent,
     ComponenteCriarContaCliComponent,
     ComponenteLoginCliComponent,
+    ComponenteMainCliComponent,
   ],
   imports: [
     BrowserModule,
