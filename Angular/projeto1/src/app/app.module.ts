@@ -8,7 +8,12 @@ import { ComponenteCriarContaCliComponent } from './componente-criar-conta-cli/c
 import { ComponenteLoginCliComponent } from './componente-login-cli/componente-login-cli.component';
 import { ComponenteMainCliComponent } from './componente-main-cli/componente-main-cli.component';
 import { ComponenteRTCliComponent } from './componente-rt-cli/componente-rt-cli.component';
-import { ComponentCnnCliComponent } from './component-cnn-cli/component-cnn-cli.component';
+import { ComponenteGoogleCliComponent } from './componente-google-cli/componente-google-cli.component';
+import { ComponenteSkynewsarabiaCliComponent } from './componente-skynewsarabia-cli/componente-skynewsarabia-cli.component';
+import { ComponenteKyivpostCliComponent } from './componente-kyivpost-cli/componente-kyivpost-cli.component';
+import { ComponenteTheguardianCliComponent } from './componente-theguardian-cli/componente-theguardian-cli.component';
+import { ComponenteIsraelhayomCliComponent } from './componente-israelhayom-cli/componente-israelhayom-cli.component';
+import { ComponenteAfricanewsCliComponent } from './componente-africanews-cli/componente-africanews-cli.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { ComponentCnnCliComponent } from './component-cnn-cli/component-cnn-cli.
     ComponenteLoginCliComponent,
     ComponenteMainCliComponent,
     ComponenteRTCliComponent,
-    ComponentCnnCliComponent,
+    ComponenteGoogleCliComponent,
+    ComponenteSkynewsarabiaCliComponent,
+    ComponenteKyivpostCliComponent,
+    ComponenteTheguardianCliComponent,
+    ComponenteIsraelhayomCliComponent,
+    ComponenteAfricanewsCliComponent,
   ],
   imports: [
     BrowserModule,
