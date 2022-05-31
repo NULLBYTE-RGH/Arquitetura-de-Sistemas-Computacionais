@@ -16,6 +16,7 @@
 
 - Receber requisição de clonagem de um ou mais sites, tambem no formato JSON
 
+- Front feito com uso do FrameWork Angular CLI e interfaces criadas com auxilio do Bootstrap. E interações ceriadas por meio de Typescript
 ![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/4007f79d6014e61bb6c4dc9cb15fa5d5aa9e7238/imgens/log.png)
 ![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/169ca8ac61362c7feb7c9e8c4798a427f6c197b6/imgens/criar-conta.png)
 ![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/169ca8ac61362c7feb7c9e8c4798a427f6c197b6/imgens/main.png)
