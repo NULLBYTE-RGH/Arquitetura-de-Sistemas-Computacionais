@@ -15,3 +15,5 @@
 - Listar todos os sites ja clonados e atualizados, com resposta no formato JSON
 
 - Receber requisição de clonagem de um ou mais sites, tambem no formato JSON
+
+![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/4007f79d6014e61bb6c4dc9cb15fa5d5aa9e7238/imgens/log.png)
