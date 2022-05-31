@@ -152,24 +152,25 @@ const tamanho = sites.length
 for (let i = 0;i<tamanho;i++){
 const Url= sites[i]
 var Nome = Url.toString().split("/")[2]
-let Nome_Dir = Nome
+let Nome_Dir = Nome.split(".")[1]
 try{
-fs.mkdir(path.join(__dirname, `${Nome_Dir}`), (err) => {
+fs.mkdir(path.join(__dirname, `../component-${Nome_Dir}-cli`), (err) => {
+
   if (err) {
-      return console.error(err);
+      //return console.error(err);
   }
 
   (async () => {
     const response = await got(Url);
     
-    console.log(Nome)
+    console.log(Nome_Dir)
     
-    fs.writeFile(path.join(__dirname, `${Nome_Dir}`).concat(`/${Nome_Dir}.html`), response.body, (err) => {
+    fs.writeFile(path.join(__dirname, `../componente-${Nome_Dir}-cli`).concat(`/componente-${Nome_Dir}-cli.component.html`), response.body, (err) => {
       if (err) throw err;
       let data = {hora,dia}
       data = JSON.stringify(data)
     
-      fs.writeFile(path.join(__dirname, `${Nome_Dir}`).concat(`/DATAclonagem.json`), data, (err) => {
+      fs.writeFile(path.join(__dirname, `../componente-${Nome_Dir}-cli`).concat(`/DATAclonagem.json`), data, (err) => {
       if (err) throw err
       console.log(`Clonagem Completa! ---> ${Nome}`)
     
