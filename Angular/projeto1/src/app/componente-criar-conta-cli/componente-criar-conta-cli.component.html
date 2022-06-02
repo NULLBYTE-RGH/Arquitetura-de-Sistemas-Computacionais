@@ -9,14 +9,14 @@
           <div class="row mx-auto">
             <div class="col-md-6 mb-3">
               <label for="firstName">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+              <input type="text" class="form-control" id="firstName" placeholder=""required="" [(ngModel)]="PrimeiroNome" [ngModelOptions]="{standalone: true}">
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+              <input type="text" class="form-control" id="lastName" placeholder="" required="" [(ngModel)]="UltimoNome" [ngModelOptions]="{standalone: true}">
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
@@ -29,7 +29,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="text" class="form-control" id="username" placeholder="Username" required="">
+              <input type="text" class="form-control" id="username" placeholder="Username" required="" [(ngModel)]="Username" [ngModelOptions]="{standalone: true}">
               <div class="invalid-feedback" style="width: 100%;">
                 Your username is required.
               </div>
@@ -38,7 +38,7 @@
 
           <div class="mx-auto mb-3 col-9">
             <label for="email">Email </label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com"required="1">
+            <input type="email" class="form-control" id="email" placeholder="you@example.com"required="1" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}">
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>
@@ -46,25 +46,25 @@
 
           <div class="mb-3 mx-auto col-9">
             <label for="PASS" class="sr-only">Password</label>
-            <input type="password" class="form-control" id="PASS" placeholder="Password" required="1">
+            <input type="password" class="form-control" id="PASS" placeholder="Password" required="1" [(ngModel)]="Senha" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="mb-3 mx-auto col-11">
             <label for="country">Country</label>
-            <select class="custom-select" id="country" required="1">
+            <select class="custom-select" id="country" required="1"  [(ngModel)]="Pais" [ngModelOptions]="{standalone: true}">
             <option value="">Choose...</option>
-            <option value="Afghanistan">Afghanistan</option>
+            <option value="Afghanistan" >Afghanistan</option>
             <option value="Albania">Albania</option>
             <option value="Argentina">Argentina</option>
             <option value="Aruba">Aruba</option>
             <option value="Canada">Canada</option>
             <option value="Cuba">Cuba</option>
             <option value="Djibouti">Djibouti</option>
-            <option value="Dominican-Republic">Dominican Republic</option>
+            <option value="Dominican-Republic">Dominican_Republic</option>
             <option value="Algeria">Algeria</option>
             <option value="Andorra">Andorra</option>
             <option value="Ukraine">Ukraine</option>
-            <option value="United">United States</option>
+            <option value="United">United_States</option>
             <option value="Russia">Russia</option>
             <option value="Serbia">Serbia</option>
             <option value="X">Other</option>
@@ -73,6 +73,11 @@
             Please select a valid country.
             </div>
         </div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Create account</button>
+          <button (click) = "Validar(PrimeiroNome,UltimoNome,Username,Email,Senha,Pais)" class="btn btn-primary btn-lg btn-block" type="submit">Create account</button>
 </div>
 </form>
+<div *ngIf="Vazio==true">
+  <div class="alert alert-danger" role="alert">
+    All fields are mandatory!
+  </div>
+</div>
