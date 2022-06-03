@@ -29,6 +29,13 @@
 -O servidor Mongo db não foi Hospedado localmente, e sim gatuitamente via a Plataforma Azure, por meio do Atlas, serviço gratuito do Mongo DB e o gerenciamento foi feito por meio da aplicação Compas, tambem do proprio Mongo DB.
 
 -Coisas que ainda teriam que ser implementada: Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. Outra coisa é o fato de nem todas as paginas clonadas estarem fncionais, por alguma incompatibilidade com o Angular.
+
+
+## Uso:
+- Inicar o Micro serviço1  dentro da pasta Angular/projeto1/src/app/Microsrviços com o comando (node ./microServiço1.js)
+- Iniciar o (ng serve) dentro da pasta projeto1
+- Iniciar o servidor dentro da pasta ServidorMongoDB, com o comando (node ./server.js)
+
 ### **FrontEnd:**
 
 - Front feito com uso do FrameWork Angular CLI e interfaces criadas com auxilio do Bootstrap. E interações ceriadas por meio de Typescript
