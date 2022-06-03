@@ -14,14 +14,14 @@ export class ServicoLoginService {
 
   respostaDbLogin!:Login;
   respostaDbCadastro!:Boolean;
-
+  cont = 0
 
   constructor(private http:HttpClient) { }
 
   logar(login:Login):Boolean {
     this.http.post<Login>(this.DB.concat('/login'),{credenciais:login}).subscribe((Login1 => this.respostaDbLogin = Login1))
-
-    if (this.respostaDbLogin.Senha === login.Senha){
+    console.log(this.respostaDbLogin)
+    if (this.respostaDbLogin){
       return true
     }
     else{
@@ -33,7 +33,8 @@ export class ServicoLoginService {
 
   cadastrar(cadastro:Cadastro):Boolean{
     this.http.post<Boolean>(this.DB.concat('/create'),{credenciais:cadastro}).subscribe((Login => this.respostaDbCadastro = Login))
-    if (this.respostaDbCadastro == true){
+    console.log(this.respostaDbCadastro)
+    if (this.respostaDbCadastro){
       return true
     }
     else{
