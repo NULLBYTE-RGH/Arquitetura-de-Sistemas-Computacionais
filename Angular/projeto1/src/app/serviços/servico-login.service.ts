@@ -10,7 +10,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class ServicoLoginService {
 
-  private DB = 'http://localhost:5000' //url do banco de dados
+  private DB = 'http://localhost:5000' //url do servidor de conexão com o banco (no caso o que esta rodando na pasta Server)
 
   respostaDbLogin!:Login;
   respostaDbCadastro!:Boolean;
