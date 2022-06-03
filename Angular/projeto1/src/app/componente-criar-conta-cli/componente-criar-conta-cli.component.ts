@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cadastro } from '../Cadastro';
 import { ServicoLoginService } from '../serviços/servico-login.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-componente-criar-conta-cli',
   templateUrl: './componente-criar-conta-cli.component.html',
@@ -17,7 +18,7 @@ export class ComponenteCriarContaCliComponent implements OnInit {
 
   Cadastro!:Cadastro
 
-  constructor(private servicoCadastro:ServicoLoginService) { }
+  constructor(private servicoCadastro:ServicoLoginService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -30,12 +31,17 @@ export class ComponenteCriarContaCliComponent implements OnInit {
       else{
         this.Vazio=false
         this.Cadastro = {PrimeiroNome:PrimeiroNome,UltimoNome:UltimoNome,Username:Username,Email:Email,Senha:Senha,Pais:Pais}
-        this.Cadastrar(this.Cadastro)
-        
+
+        if (this.Cadastrar(this.Cadastro)){
+          this.router.navigate(['/main'])  
+        }
+        else{
+          this.router.navigate(['/create-account'])  
+        }      
       }
   }
 
-  Cadastrar(dados:Cadastro){
-    this.servicoCadastro.cadastrar(dados)
+  Cadastrar(dados:Cadastro):Boolean{
+    return this.servicoCadastro.cadastrar(dados)
   }
 }

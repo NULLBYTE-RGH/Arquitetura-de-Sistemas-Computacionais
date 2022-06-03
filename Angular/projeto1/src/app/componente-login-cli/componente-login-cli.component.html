@@ -13,7 +13,14 @@
       All fields are mandatory!
     </div>
   </div>
-  <a href = "/create-account">
+
+  <div *ngIf="Credenciais_Incorretas==true">
+    <div class="alert alert-danger" role="alert">
+      Incorrect password or email!
+    </div>
+  </div>
+
+  <a href = "/create-account" style="text-decoration: none;">
     <button class="mt-5 p-4 btn btn-lg btn-info btn-block" type="submit">Create account</button>
   </a>
   </div>
