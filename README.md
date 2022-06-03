@@ -20,15 +20,15 @@
 
 #### Com uso da biblioteca axios e MongoDb foi criado o Server: 
 
--Ao ser iniciado, a primeira coisa feita é a validação das credenciais passadas e checagem do estado do banco de dados. Feito isso, e tendo resultado positivo, é aguardado por requisições na porta 5000 que podem ser /create ou /login
+- Ao ser iniciado, a primeira coisa feita é a validação das credenciais passadas e checagem do estado do banco de dados. Feito isso, e tendo resultado positivo, é aguardado por requisições na porta 5000 que podem ser /create ou /login
 
-+Sendo /create: é recebido um JSON  com os dados que se quer cadastrar, mas antes de realizar o salvamento é feito uma verificação de uniciade (realizado uma conexão com o Mongo Buscando pela tabela Maua e coleção Maua), caso não exista previamente armazenado nenhuma conta com o Email que se quer cadastrar, o programa prossegue para o envio e salvamento das informaçoes no banco de dados.
++ Sendo /create: é recebido um JSON  com os dados que se quer cadastrar, mas antes de realizar o salvamento é feito uma verificação de uniciade (realizado uma conexão com o Mongo Buscando pela tabela Maua e coleção Maua), caso não exista previamente armazenado nenhuma conta com o Email que se quer cadastrar, o programa prossegue para o envio e salvamento das informaçoes no banco de dados.
 
-+Sendo /login: é feita uma solicitação no Banco Buscando o Cadastro pelo Email, caso exista, é feito uma comparação entreo email enviado do formulario web e o retornado pelo banco de dados, em casode serem iguais, é retornado True ao Serviço e o Usuario é redirecionado para a pagina principal, caso contrario ele fica na tela de login e é exibido um alerta de email ou senha incorretos.
++ Sendo /login: é feita uma solicitação no Banco Buscando o Cadastro pelo Email, caso exista, é feito uma comparação entreo email enviado do formulario web e o retornado pelo banco de dados, em casode serem iguais, é retornado True ao Serviço e o Usuario é redirecionado para a pagina principal, caso contrario ele fica na tela de login e é exibido um alerta de email ou senha incorretos.
 
--O servidor Mongo db não foi Hospedado localmente, e sim gatuitamente via a Plataforma Azure, por meio do Atlas, serviço gratuito do Mongo DB e o gerenciamento foi feito por meio da aplicação Compas, tambem do proprio Mongo DB.
+- O servidor Mongo db não foi Hospedado localmente, e sim gatuitamente via a Plataforma Azure, por meio do Atlas, serviço gratuito do Mongo DB e o gerenciamento foi feito por meio da aplicação Compas, tambem do proprio Mongo DB.
 
--Coisas que ainda teriam que ser implementada: Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. Outra coisa é o fato de nem todas as paginas clonadas estarem fncionais, por alguma incompatibilidade com o Angular.
+- Coisas que ainda teriam que ser implementada: Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. Outra coisa é o fato de nem todas as paginas clonadas estarem fncionais, por alguma incompatibilidade com o Angular.
 
 
 ## Uso:
