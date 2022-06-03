@@ -16,7 +16,7 @@
 
 - Receber requisição de clonagem de um ou mais sites, tambem no formato JSON
 
-### **MicroServiço2 = Conexão com banco de dados remoto::**
+### **MicroServiço2 = Conexão com banco de dados remoto:**
 
 #### Com uso da biblioteca axios e MongoDb foi criado o Server: 
 
