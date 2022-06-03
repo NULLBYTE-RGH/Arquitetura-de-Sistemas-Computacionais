@@ -7,7 +7,6 @@ const { MongoClient } = require('mongodb');
 const username = '*******'
 const password='********'
 
-aa = {Email:"123",Senha:"123"}
 
 async function main() {
 
