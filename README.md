@@ -29,9 +29,9 @@
 - O servidor Mongo db não foi Hospedado localmente, e sim gatuitamente via a Plataforma Azure, por meio do Atlas, serviço gratuito do Mongo DB e o gerenciamento foi feito por meio da aplicação Compas, tambem do proprio Mongo DB.
 
 - Coisas que ainda teriam que ser implementada: 
--Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. 
--Nem todas as paginas clonadas estão fncionais, por alguma incompatibilidade com o Angular. 
--Não é feita uma validação de email ou senha(na questão de ter @ ou não e tamanho da senha), isso poderia ser implementado via Regex dentro do serviço login, ou no proprio typescript do componente.
+<> Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. 
+<> Nem todas as paginas clonadas estão fncionais, por alguma incompatibilidade com o Angular. 
+<> Não é feita uma validação de email ou senha(na questão de ter @ ou não e tamanho da senha), isso poderia ser implementado via Regex dentro do serviço login, ou no proprio typescript do componente.
 
 
 ## Uso:
