@@ -24,13 +24,13 @@
 
 + Sendo /create: é recebido um JSON  com os dados que se quer cadastrar, mas antes de realizar o salvamento é feito uma verificação de uniciade (realizado uma conexão com o Mongo Buscando pela tabela Maua e coleção Maua), caso não exista previamente armazenado nenhuma conta com o Email que se quer cadastrar, o programa prossegue para o envio e salvamento das informaçoes no banco de dados.
 
-+ Sendo /login: é feita uma solicitação no Banco Buscando o Cadastro pelo Email, caso exista, é feito uma comparação entreo email enviado do formulario web e o retornado pelo banco de dados, em casode serem iguais, é retornado True ao Serviço e o Usuario é redirecionado para a pagina principal, caso contrario ele fica na tela de login e é exibido um alerta de email ou senha incorretos.
++ Sendo /login: é feita uma solicitação no Banco Buscando o Cadastro pelo Email, caso exista, é feito uma comparação entre o email enviado do formulario web e o retornado pelo banco de dados, em caso de serem iguais, é retornado True ao Serviço e o Usuario é redirecionado para a pagina principal, caso contrario ele fica na tela de login e é exibido um alerta de email ou senha incorretos.
 
 - O servidor Mongo db não foi Hospedado localmente, e sim gatuitamente via a Plataforma Azure, por meio do Atlas, serviço gratuito do Mongo DB e o gerenciamento foi feito por meio da aplicação Compas, tambem do proprio Mongo DB.
 
-- Coisas que ainda teriam que ser implementada: 
+- Coisas que ainda teriam que ser implementadas: 
 - [ ] Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. 
-- [ ]  Nem todas as paginas clonadas estão fncionais, por alguma incompatibilidade com o Angular. 
+- [ ] Nem todas as paginas clonadas estão fncionais, por alguma incompatibilidade com o Angular. 
 - [ ] Não é feita uma validação de email ou senha(na questão de ter @ ou não e tamanho da senha), isso poderia ser implementado via Regex dentro do serviço login, ou no proprio typescript do componente.
 
 
@@ -48,5 +48,4 @@
 ![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/169ca8ac61362c7feb7c9e8c4798a427f6c197b6/imgens/criar-conta.png)
 ![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/169ca8ac61362c7feb7c9e8c4798a427f6c197b6/imgens/main.png)
 ![alt text](https://github.com/NULLBYTE-RGH/Arquitetura-de-Sistemas-Computacionais/blob/2ccb3f6c82ec68c872bd11398f06dd0fc5606364/imgens/MongoDB.png)
-
 
