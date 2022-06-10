@@ -32,7 +32,7 @@
 - [ ] Gerenciamento pelo Router Guard das rotas, pois da foma que esta atualmente basta digitar / main e ir para o menu sem se autenticar. 
 - [ ] Nem todas as paginas clonadas estão fncionais, por alguma incompatibilidade com o Angular. 
 - [ ] Não é feita uma validação de email ou senha(na questão de ter @ ou não e tamanho da senha), isso poderia ser implementado via Regex dentro do serviço login, ou no proprio typescript do componente.
-- [ ] Salvar as senhas como HASH e nao texto puro no banco de dados
+- [ ] Salvar as senhas como HASH e nao como texto puro no banco de dados
 
 ## Uso:
 - Inicar o Micro serviço1  dentro da pasta Angular/projeto1/src/app/Microsrviços com o comando (node ./microServiço1.js)
